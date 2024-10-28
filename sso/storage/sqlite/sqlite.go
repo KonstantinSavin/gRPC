@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+
 	"grpc/sso/internal/models"
 	"grpc/sso/internal/storage"
 
@@ -30,6 +31,7 @@ func (s *Storage) SaveUser(ctx context.Context, email string, passHash []byte) (
 	const op = "storage.sqlite.SaveUser"
 
 	stmt, err := s.db.Prepare("INSERT INTO users(email, pass_hash) VALUES(?, ?)")
+
 	if err != nil {
 		return 0, fmt.Errorf("%s: %w", op, err)
 	}

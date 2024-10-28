@@ -59,6 +59,7 @@ var (
 	ErrInvalidCredentials = errors.New("invalid credentials")
 	ErrInvalidAppID       = errors.New("invalid app ID")
 	ErrUserExists         = errors.New("user already exists")
+	ErrUserNotFound       = errors.New("user not found")
 )
 
 // Login checks if user with given credentials exists in the system and returns access token.
@@ -116,7 +117,7 @@ func (a *Auth) Login(
 // RegisterNewUser registers new user in the system and returns user ID.
 // If user with given username already exists, returns error.
 func (a *Auth) RegisterNewUser(ctx context.Context, email string, pass string) (int64, error) {
-	const op = "auth.RegisterNewUse"
+	const op = "auth.RegisterNewUser"
 
 	log := a.log.With(slog.String("op", op))
 
