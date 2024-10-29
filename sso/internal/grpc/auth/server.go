@@ -92,7 +92,7 @@ func (s *serverAPI) IsAdmmin(ctx context.Context, req *sso.IsAdminRequest) (*sso
 
 func validateLogin(req *sso.LoginRequest) error {
 	if req.GetEmail() == "" {
-		return status.Error(codes.InvalidArgument, "email is requared")
+		return status.Error(codes.InvalidArgument, "email is required")
 	}
 
 	if req.GetPassword() == "" {
@@ -108,7 +108,7 @@ func validateLogin(req *sso.LoginRequest) error {
 
 func validateRegister(req *sso.RegisterRequest) error {
 	if req.GetEmail() == "" {
-		return status.Error(codes.InvalidArgument, "email is requared")
+		return status.Error(codes.InvalidArgument, "email is required")
 	}
 
 	if req.GetPassword() == "" {
